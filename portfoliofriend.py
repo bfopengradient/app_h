@@ -3,7 +3,7 @@ import pandas as pd
 import yfinance as s
 import streamlit as st
 from streamlit import caching 
-import webbrowser
+ 
 
 #July/21
  
