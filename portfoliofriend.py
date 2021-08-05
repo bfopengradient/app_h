@@ -25,13 +25,7 @@ def create_drawdowns(equity_curve):
 st.markdown('''# Portfolio Friend''')
 st.markdown('#')
 
-     
-
-url = 'https://au.finance.yahoo.com/'
-
-if st.button('Go to Yahoo finance to get Asset tickers'):
-    webbrowser.open_new_tab(url)
-
+    
 st.markdown('#')
 
 
