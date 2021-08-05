@@ -23,11 +23,8 @@ def create_drawdowns(equity_curve):
  
 #title
 st.markdown('''# Portfolio Friend''')
+st.markdown('#')   
 st.markdown('#')
-
-    
-st.markdown('#')
-
 
 #cache for portfolio metrics and correllation matrix
 @st.cache(allow_output_mutation=True)
