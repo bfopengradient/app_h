@@ -8,8 +8,8 @@ from streamlit import caching
 
 #July/21
 
-st.markdown('#')      
-st.markdown('#')
+st.write("")      
+ 
 
  
  
@@ -28,7 +28,7 @@ def create_drawdowns(equity_curve):
 #logo and title
 NAME_IMAGE = "Your logo goes here"
 logo = Image.open('CMYK_Secondary.png')
-st.image(logo, width=700) 
+st.image(logo, width=500) 
 col1, col2, col3 = st.beta_columns([2,2,1])
 with col1:
     st.write("")
