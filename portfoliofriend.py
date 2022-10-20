@@ -7,6 +7,10 @@ from streamlit import caching
  
 
 #July/21
+
+st.markdown('#')      
+st.markdown('#')
+
  
  
 #function to create drawdowns
@@ -20,12 +24,6 @@ def create_drawdowns(equity_curve):
         drawdown[t]= ((hwm[t] - equity_curve[t])/ hwm[t]) 
     return drawdown.max()
  
-
- 
-#title
-#st.markdown('''# Portfolio Friend''')
-#st.markdown('#')      
-#st.markdown('#')
 
 #logo and title
 NAME_IMAGE = "Your logo goes here"
