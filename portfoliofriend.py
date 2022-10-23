@@ -25,18 +25,9 @@ st.write("")
 NAME_IMAGE = "Your logo goes here"
 logo = Image.open('CMYK_Secondary.png')
 st.image(logo, width=500) 
-col1, col2, col3 = st.beta_columns([2,2,1])
-with col1:
-    st.write("")
-with col2:
-    st.markdown('') 
-# PORTFOLIO FRIEND
-with col3:
-    st.write( "")
-
-st.markdown('#')      
-st.markdown('#')
-
+st.write( "")
+st.write( "")
+ 
 
 
 #cache for portfolio metrics and correlation matrix
