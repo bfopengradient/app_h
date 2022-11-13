@@ -5,7 +5,7 @@
 
 There is a logo file that is deliberately missing from the repo and that file is referenced in the main .py file. You just need to sub in your own logo file should you ever wish to work with this repo on heroku.
 
-The App is running currently via heroku on https://streamlit-pfriend-app.herokuapp.com/
+ 
 
 
 July/2021
