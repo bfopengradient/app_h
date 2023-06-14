@@ -12,4 +12,4 @@ July/2021
 
 June /23: 
 
-Repo needs to be updated to even run locally . Update Streamlit. Remove any refences to beta in .py file and also use @st.cache_data  which is relevant to most recent versuion of streamlit.  Since Salesforce took over Heroku I stopped hosting the App on that service so the Profile and .sh are not needed to run the app locally. 
+Repo needs to be updated to even run locally . Update Streamlit. Remove any refences to beta in .py file and also use @st.cache_data  which is relevant to most recent versuion of streamlit.  Since Salesforce took over Heroku I stopped hosting the App on that service so the Procfile and .sh are not needed to run the app locally. 
