@@ -4,8 +4,12 @@
 
 There is a logo file that is deliberately missing from the repo and that file is referenced in the main .py file. You just need to sub in your own logo file should you ever wish to work with this repo on heroku.
 
+The .mov file in the repo contains a short movie clip of the app in action. You will need to download the file to view the movie.
+
 July/2021
 
 
 
-June /23: Repo needs to be updated to even run locally . Update Streamlit. Remove any refences to beta in .py file and also use @st.cache_data  which is relevant to most recent versuion of streamlit.  Since Salesforce took over Heroku I stopped hosting the App on that service so the Profile and .sh are not needed to run the app locally. 
+June /23: 
+
+Repo needs to be updated to even run locally . Update Streamlit. Remove any refences to beta in .py file and also use @st.cache_data  which is relevant to most recent versuion of streamlit.  Since Salesforce took over Heroku I stopped hosting the App on that service so the Profile and .sh are not needed to run the app locally. 
