@@ -1,5 +1,14 @@
 # portfoliofriend_app
- App allows user to check risk metrics for any asset where price info is available on yahoo finance.  
 
-This repo contains updated(Jun/23) code to run app locally. Streamlit is updated to current version. App was run amd tested in a virtual environmnent locally which is the suggested way to test and work with this locally.  
-Streamlit when installed will also install numpy and pandas among many other libraries and there risk is if you dont run in a virtual environemnt you may create issues or conflicts with these libraries in your base or main directories.
+The app allows users to check risk metrics for any asset for which price information is available on Yahoo Finance.
+
+The.py file contains a reference to a .png logo image file. That logo file is intentionally not included. Substitute your own .png file or your logo file in place.
+ 
+This repo contains updated June 23 code to run the app locally. Streamlit has been updated to the current version. The app was run and tested in a virtual environment locally, which is the suggested way to test and work with it locally. Streamlit, when installed, will also install Numpy and Pandas, among many other libraries, and there is a risk that if you don't run in a virtual environment, you may create issues or conflicts with these libraries in your base or main directories.
+
+Once you have installed the libraries from the requirements.txt file in your virtual environment, you just need to run the following code in your terminal: streamlit run portfoliofriend.py
+
+A window will open in your browser, and the app should be good to go.
+
+Jun/23
+
