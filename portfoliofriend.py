@@ -1,0 +1,134 @@
+import numpy as np
+import pandas as pd
+from PIL import Image
+import yfinance as s
+import streamlit as st
+ 
+ 
+
+#Jun/23 changes made to reflect latest streamlit version. beta features are now replaced and cache resources added to enable users to expand and compare multiple financial assets in the app. 
+ 
+ 
+#function to create drawdowns
+def create_drawdowns(equity_curve):
+    hwm = [0]
+    eq_idx = equity_curve.index
+    drawdown = pd.Series(index = eq_idx)
+    for t in range(1, len(eq_idx)):
+        cur_hwm = max(hwm[t-1], equity_curve[t])
+        hwm.append(cur_hwm)
+        drawdown[t]= ((hwm[t] - equity_curve[t])/ hwm[t]) 
+    return drawdown.max()
+ 
+
+ 
+#logo and title
+ 
+
+NAME_IMAGE = "Your logo goes here"
+logo = Image.open('CMYK_Secondary.png')
+st.image(logo, width=700) 
+col1, col2, col3 = st.columns([2,2,1])
+with col1:
+    st.write("")
+with col2:
+    st.markdown('### PORTFOLIO FRIEND')     
+with col3:
+    st.write( "")
+
+st.markdown('#')      
+st.markdown('#')
+
+
+#cache for portfolio metrics and correlation matrix
+@st.cache_resource()
+def persistdata():
+    return {}
+@st.cache_resource()
+def persistdata_2():
+    return {}
+
+#containers to enter asset and units
+with st.container():
+    #button to specify period of analysis
+    p= st.radio("Select time period for all Assets",('1y','5y','Max'))
+    st.write("#")
+
+
+    #dictionaries for portfolio metrics and correlation matrix
+    d = persistdata()    
+    corr=persistdata_2()
+    col1, col2 = st.columns(2)
+ 
+    with col1:
+        stock = st.text_input(" Enter Asset ticker")
+        result=pd.DataFrame(s.Ticker(stock).history(period=p)).fillna(method='bfill')
+                 
+    with col2:
+        units = st.number_input("Enter units of Asset",min_value=0, max_value=100000, value=0, step=1)
+    st.write("#")
+    
+    #add to portfolio or not
+    button = st.button("Click here to add asset to Portfolio")
+    if button:
+        if stock and units:  
+            st.write("#")
+            st.markdown(' Historical price movement') 
+            st.line_chart(result['Close'],width=760,height=200,use_container_width=False)         
+            result['prev_close'] = result['Close'].shift(1).fillna(method='bfill')            
+            dollar_exposure=  int(units) * result['prev_close'][-1]
+            result['intraday upside']= ((result['High']- result['Open'])/result['Open'])*100
+            result['intraday downside']= ((result['Low'] - result['Open'])/result['Open'])*100
+            result['overnight movement']= ((result['prev_close']- result['Open'])/result['Open'])*100
+            result['intraday range']=((result['High']- result['Low'])/result['Low'])*100
+            result['drawdown']= (create_drawdowns(result['Close']))*dollar_exposure
+            d[stock] = {'units': units,'dollar exposure':np.round(dollar_exposure),'max intraday upside %': int(result['intraday upside'].max()),'max intraday downside %': int(result['intraday downside'].min()) ,'max overnight movement %': int(result['overnight movement'].max()),
+	                            'max intraday range %':int(result['intraday range'].max()) ,'max drawdown dollars': int(np.round((create_drawdowns(result['Close']))*dollar_exposure))}   
+            df=pd.DataFrame(d).T
+            df.loc['Total',:] = df.sum(axis=0).round()
+
+            #Get prices for correlation matrix
+            corr[stock]= pd.Series(result.Close.values).fillna(method='bfill')
+            st.write("#")
+            df_2 = pd.DataFrame(corr) 
+            st.markdown('Current Portfolio')
+            st.dataframe(df)
+            st.markdown('#')
+            st.write("#")
+            st.markdown("Asset Price Correlations")            
+            st.dataframe(df_2.corr())
+            
+
+             
+
+ 
+ 
+            	 
+
+             
+		     
+		    		 
+ 
+
+		 
+ 
+ 
+ 
+
+  
+
+ 
+    
+
+
+ 
+
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+	  
