@@ -10,5 +10,5 @@ Once you have installed the libraries from the requirements.txt file in your vir
 
 A window will open in your browser, and the app should be good to go.
 
-Jun/23
+June/23
 
