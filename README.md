@@ -2,7 +2,7 @@
 
 The app allows users to check risk metrics for any asset for which price information is available on Yahoo Finance.
 
-The.py file contains a reference to a .png logo image file. That logo file is intentionally not included. Substitute your own .png file or your logo file in place.
+The .py file contains a reference to a .png logo image file. That logo file is intentionally not included. Substitute your own .png file or your logo file in place.
  
 This repo contains updated June 23 code to run the app locally. Streamlit has been updated to the current version. The app was run and tested in a virtual environment locally, which is the suggested way to test and work with it locally. Streamlit, when installed, will also install Numpy and Pandas, among many other libraries, and there is a risk that if you don't run in a virtual environment, you may create issues or conflicts with these libraries in your base or main directories.
 
