@@ -12,4 +12,4 @@ July/2021
 
 June /23: 
 
-local_only branch contains uodated code to run app locally.
+local_only branch contains updated code to run app locally.
